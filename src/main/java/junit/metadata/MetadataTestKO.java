@@ -3,6 +3,7 @@ package junit.metadata;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.squashtest.ta.galaxia.squash.tf.galaxia.annotations.TFMetadata;
+import org.squashtest.ta.galaxia.squash.tf.galaxia.annotations.TFMetadataList;
 
 public class MetadataTestKO {
 
@@ -39,6 +40,22 @@ public class MetadataTestKO {
     @TFMetadata( key = "same", value = {})
     @TFMetadata( key = "same", value = {"first","two",})
     public void sameKeyMultipleAnnotWarning (){
+        int a = 2;
+        int b = 2;
+        Assertions.assertEquals(a, b);
+    }
+
+    @Test
+    @TFMetadata( key = "unicity", value = "bla")
+    public void unicityError1(){
+        int a = 2;
+        int b = 2;
+        Assertions.assertEquals(a, b);
+    }
+
+    @Test
+    @TFMetadata( key = "unicity", value = "bla")
+    public void unicityError2(){
         int a = 2;
         int b = 2;
         Assertions.assertEquals(a, b);

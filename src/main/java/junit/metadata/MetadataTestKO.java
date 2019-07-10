@@ -28,8 +28,8 @@ public class MetadataTestKO {
     }
 
     @Test
-    @TFMetadata( key = "first_K-E.Y", value = {})
-    @TFMetadata( key = "mu.l-ti_Key", value = {"first","two",})
+    @TFMetadata( key = "first_K-E.Y", value = "")
+    @TFMetadata( key = "mu.l-ti_Key", value = {"first","two", ""})
     public void noValue (){
         int a = 2;
         int b = 2;
@@ -37,9 +37,9 @@ public class MetadataTestKO {
     }
 
     @Test
-    @TFMetadata( key = "same", value = {})
-    @TFMetadata( key = "same", value = {"first","two",})
-    public void sameKeyMultipleAnnotWarning (){
+    @TFMetadata( key = "same", value = "other")
+    @TFMetadata( key = "same", value = {"first","two"})
+    public void sameKeyMultipleAnnot (){
         int a = 2;
         int b = 2;
         Assertions.assertEquals(a, b);
@@ -56,6 +56,22 @@ public class MetadataTestKO {
     @Test
     @TFMetadata( key = "unicity", value = "bla")
     public void unicityError2(){
+        int a = 2;
+        int b = 2;
+        Assertions.assertEquals(a, b);
+    }
+
+    @Test
+    @TFMetadata( key = "unicity_multiline", value = "same")
+    public void unicityErrorMultiline1(){
+        int a = 2;
+        int b = 2;
+        Assertions.assertEquals(a, b);
+    }
+
+    @Test
+    @TFMetadata( key = "unicity_multiline", value = {"different", "same", "another"})
+    public void unicityErrorMultiline2(){
         int a = 2;
         int b = 2;
         Assertions.assertEquals(a, b);
